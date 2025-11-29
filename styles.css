@@ -1,0 +1,52 @@
+* { box-sizing: border-box; }
+:root {
+  --bg: #f6d5de;
+  --bg-2: #f2c8d2;
+  --ink: #3b2f34;
+}
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--ink);
+  background: radial-gradient(1200px 800px at 50% 40%, rgba(255,255,255,0.65), rgba(255,255,255,0)) fixed,
+              linear-gradient(180deg, var(--bg), var(--bg-2)) fixed;
+}
+
+.viewport {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.canvas {
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 32px);
+}
+
+.scene {
+  width: min(1200px, 92vw);
+  height: auto;
+  border-radius: 24px;
+  user-select: none;
+  -webkit-user-drag: none;
+  overflow: hidden;
+}
+
+.caption {
+  text-align: center;
+  color: #7a6c72;
+  font-size: 14px;
+  padding: 10px 18px 28px;
+}
+
+/* Micro animation for subtle float */
+.scene { animation: float 14s ease-in-out infinite; }
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0px); }
+}
